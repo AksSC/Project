@@ -1,4 +1,4 @@
-        var card = document.getElementById('activator');
+        var card1 = document.getElementById('activator');
         var tl = gsap.timeline({defaults: {ease: "power2.inOut"}})
 
         var toggle = false;
@@ -17,7 +17,38 @@
         }, "-=.5")
         tl.pause();
 
-        card.addEventListener('click', () => {
+        card1.addEventListener('click', () => {
             toggle = !toggle;
             if (toggle ? tl.play() : tl.reverse());
+        })
+
+
+        var card2 = document.getElementById('card');
+
+        var rule = CSSRulePlugin.getRule(".card::before");
+        var rule2 = CSSRulePlugin.getRule(".card::after");
+
+        var tl2 = gsap.timeline({defaults: {ease: "power2.inOut"}});
+
+        tl2.to(rule, {
+            width: '100%'
+        })
+        tl2.to(rule2, {
+            width: '100%'
+        }, "-=.3")
+        tl2.to('h1', {
+            color: 'white'
+        }, "-=.7")
+        tl2.to('p', {
+            'clipPath': 'circle(140% at 0% 100%)',
+            'transform': 'translateX(0)',
+            ease: Back.easeOut.config(4),
+        }, "-=.3")
+        tl.pause();
+
+        card2.addEventListener('mouseenter', () => {
+            tl2.play();
+        })
+        card.addEventListener('mouseleave', () => {
+            tl2.reverse();
         })
