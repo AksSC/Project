@@ -4,7 +4,7 @@ const scoreDisplay = document.getElementById('score')
 let squares = []
 let currentSnake = [2,1,0]
 let direction = 1
-const width = 10
+const width = 20
 let appleIndex = 0
 let score = 0
 let intervalTime = 1000
@@ -40,9 +40,9 @@ function startGame() {
     scoreDisplay.textContent = score
     direction = 1
     intervalTime = 1000
-    generateApple()
     //readd the class of snake to our new currentSnake
     currentSnake.forEach(index => squares[index].classList.add('snake'))
+    generateApple()
     timerId = setInterval(move, intervalTime)
 }
 
@@ -100,7 +100,6 @@ function generateApple() {
     } while (squares[appleIndex].classList.contains('snake'))
     squares[appleIndex].classList.add('apple')
 } 
-generateApple()
 
 // 39 is right arrow
 // 38 is for the up arrow
