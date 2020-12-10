@@ -44,11 +44,11 @@
             'transform': 'translateX(0)',
             ease: Back.easeOut.config(4),
         }, "-=.3")
-        tl.pause();
+        tl2.pause();
 
         card2.addEventListener('mouseenter', () => {
             tl2.play();
         })
-        card.addEventListener('mouseleave', () => {
+        card2.addEventListener('mouseleave', () => {
             tl2.reverse();
         })
