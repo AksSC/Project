@@ -19,6 +19,7 @@ header .activator {
   padding: 1em;
   border-radius: 100%;
   cursor: pointer;
+  background: black;
 }
 
 header .activator:hover {
