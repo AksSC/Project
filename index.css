@@ -12,6 +12,7 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  margin: 10px;
 }
 
 header .activator {
