@@ -2,12 +2,12 @@ const grid = document.querySelector('.grid')
 const startButton = document.getElementById('start')
 const scoreDisplay = document.getElementById('score')
 let squares = []
-let currentSnake = [2,1,0]
+let currentSnake = [5,4,3,2,1,0]
 let direction = 1
 const width = 20
 let appleIndex = 0
 let score = 0
-let intervalTime = 1000
+let intervalTime = 900
 let speed = 0.9
 let timerId = 0
 
@@ -34,12 +34,12 @@ function startGame() {
     //remove the apple
     squares[appleIndex].classList.remove('apple')
     clearInterval(timerId)
-    currentSnake = [2,1,0]
+    currentSnake = [5,4,3,2,1,0]
     score = 0
     //re add new score to browser
     scoreDisplay.textContent = score
     direction = 1
-    intervalTime = 1000
+    intervalTime = 900
     //readd the class of snake to our new currentSnake
     currentSnake.forEach(index => squares[index].classList.add('snake'))
     generateApple()
@@ -63,6 +63,7 @@ function move() {
     //add square in direction we are heading
     currentSnake.unshift(currentSnake[0] + direction)
     //add styling so we can see it
+    squares[currentSnake[0]].classList.add('snake')
     
     //deal with snake head gets apple
     if (squares[currentSnake[0]].classList.contains('apple')) {
@@ -86,7 +87,7 @@ function move() {
     
     
     
-    squares[currentSnake[0]].classList.add('snake')
+    
 }
 
 
